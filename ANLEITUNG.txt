@@ -1,4 +1,16 @@
-ART COACH V1.2.1 TEST
+ART COACH V1.2.2 – UPDATE-FIX
 
-GitHub Pages: index.html und sw.js im Hauptverzeichnis ersetzen.
-Neu: Posenwerkstatt direkt in Navigation und direkt im Bauplan erreichbar.
+1. In deinem GitHub-Repository Art-coach im Hauptverzeichnis die vorhandene index.html und sw.js ersetzen.
+2. Änderungen committen.
+3. GitHub Pages kurz Zeit zum Deployen geben.
+4. Danach in Safari öffnen:
+   https://jensjkoenig21.github.io/Art-coach/?v=122
+5. Oben rechts muss sichtbar stehen: ART COACH · V1.2.2
+6. Links muss Posenwerkstatt sichtbar sein.
+
+Änderung V1.2.2:
+- Navigationen werden Network-first geladen.
+- Bei Internetverbindung wird die aktuelle index.html geholt.
+- Offline dient die zuletzt erfolgreiche index.html als Fallback.
+- skipWaiting() und clients.claim() aktivieren neue Service-Worker-Versionen schneller.
+- Alte Cache-Versionen werden beim Aktivieren gelöscht.
