@@ -1,0 +1,20 @@
+ART COACH V1 – erster iPad-Prototyp
+
+Enthalten:
+- iPad-optimiertes Querformat-Layout
+- Mein Atelier / aktuelles Werk
+- Ideenatelier mit Intention und Gestaltungsrichtung
+- dynamischer Proportions-Bauplan
+- Ateliermodus mit 5 Arbeitsphasen
+- lokales Foto / Zwischenstand
+- Atelierbuch und Reflexion
+- lokale Speicherung via localStorage
+- Service Worker für Offline-PWA-Basis
+
+Test:
+1. index.html und sw.js gemeinsam auf einen Webserver/GitHub Pages legen.
+2. Auf dem iPad in Safari öffnen.
+3. Optional über Teilen > Zum Home-Bildschirm als App ablegen.
+
+Wichtig:
+Der ART CHECK mit echter KI-Bildanalyse ist in diesem ersten Prototyp bewusst noch nicht aktiv.
