@@ -1,15 +1,6 @@
-ART COACH V1.1 TEST
+ART COACH V1.2 TEST – POSENWERKSTATT
 
-Zum Testen auf GitHub Pages:
-1. Im bestehenden Repository art-coach index.html ersetzen.
-2. sw.js ebenfalls ersetzen.
-3. Änderungen committen.
-4. App auf dem iPad neu laden. Falls noch die alte Version erscheint, Seite einmal vollständig schließen und erneut öffnen.
+GitHub Pages: index.html und sw.js im bestehenden Repository ersetzen und committen.
+Danach die Seite auf dem iPad neu laden. Falls noch V1.1 erscheint: Safari-Tab schließen und Seite erneut öffnen.
 
-Neu in diesem Test:
-- Bauplan führt zu „Dein erster Gestaltungsimpuls“
-- 3 wechselbare visuelle Impulse
-- Apple-Pencil/Finger-Zeichenfläche für Entwurf 1
-- Foto einer eigenen Skizze
-- kurze Reflexion und Selbst-Check
-- danach Übergang in den bestehenden Ateliermodus
+Neu: Posen-Bibliothek, bewegliche proportionale Gliederpuppe, Skelett-/Volumenansicht, eigene Pose übernehmen.
