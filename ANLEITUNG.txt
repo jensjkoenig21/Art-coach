@@ -1,6 +1,4 @@
-ART COACH V1.2 TEST – POSENWERKSTATT
+ART COACH V1.2.1 TEST
 
-GitHub Pages: index.html und sw.js im bestehenden Repository ersetzen und committen.
-Danach die Seite auf dem iPad neu laden. Falls noch V1.1 erscheint: Safari-Tab schließen und Seite erneut öffnen.
-
-Neu: Posen-Bibliothek, bewegliche proportionale Gliederpuppe, Skelett-/Volumenansicht, eigene Pose übernehmen.
+GitHub Pages: index.html und sw.js im Hauptverzeichnis ersetzen.
+Neu: Posenwerkstatt direkt in Navigation und direkt im Bauplan erreichbar.
