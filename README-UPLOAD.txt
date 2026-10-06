@@ -1,15 +1,16 @@
-ART COACH V1.3.2 – NATURAL JOINTS
+ART COACH V1.3.3 – NATURAL LIMITS
+Basis: exakt die vom Nutzer hochgeladene, funktionierende V1.3.
 
-Ersetzt den fehlerhaften Drag-Mechanismus aus V1.3.1.
+Nur index.html und sw.js ersetzen.
+Dann EIN Commit und EIN Pages-Deployment.
 
-Nur index.html und sw.js in GitHub ersetzen.
-Danach EIN Commit und EIN Pages-Deployment.
+Testreihenfolge:
+1. Vorderansicht: linke Hand mehrfach bewegen.
+2. Rechte Hand mehrfach bewegen.
+3. Füße mehrfach bewegen.
+4. Rumpf bewegen – komplette Figur muss gemeinsam folgen.
+5. Kopf bewegen – bleibt am Hals gekoppelt.
+6. Seitenansicht: beide Arme nacheinander unterschiedlich positionieren.
+7. Prüfen: kein Arm/Bein wird länger.
 
-Test:
-1. Vorderansicht: Ellenbogen/Knie mehrfach hintereinander bewegen.
-2. Prüfen: kein Sprung beim ersten Kontakt.
-3. Prüfen: Ober-/Unterarm und Ober-/Unterschenkel bleiben gleich lang.
-4. Seitenansicht: vorderen und hinteren Arm getrennt bewegen.
-5. Kopf bewegen: bleibt am Hals gekoppelt.
-
-Cache-Version: 1321
+Cache: 1331
