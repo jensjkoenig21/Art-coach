@@ -1,12 +1,18 @@
-ART COACH V1.3 KOMPLETT
+ART COACH V1.3.1 – NATURAL MOVEMENT
 
-Für GitHub brauchst du nur:
-1. index.html ersetzen
-2. sw.js ersetzen
-3. Beide Änderungen committen.
-4. Danach EIN Pages-Deployment abwarten.
+Nur zwei Dateien im GitHub-Repository ersetzen:
+- index.html
+- sw.js
 
-v13.js und v13.css werden von dieser Version NICHT mehr benötigt.
-Du kannst sie zunächst im Repository liegen lassen; sie stören nicht.
+Dann EINEN Commit durchführen und EIN Pages-Deployment abwarten.
 
-Versionskennung: V1.3 / Cache 1301
+Neu:
+- feste Ober-/Unterarm- und Ober-/Unterschenkellängen
+- Ellenbogen und Knie werden bewegt, nicht Hände/Füße frei gezogen
+- Kopf bleibt am Hals gekoppelt
+- gesamter Rumpf verschiebt die Figur zusammenhängend
+- Seitenansicht: vorderer und hinterer Arm getrennt bewegbar
+- Bewegungsbögen zeigen die Gelenkradien
+- V1.3 Zeichenpad-Fix bleibt erhalten
+
+Cache-Version: 1311

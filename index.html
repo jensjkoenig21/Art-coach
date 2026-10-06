@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#24251f">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>ART COACH V1.3 Figurenatelier</title>
+<title>ART COACH V1.3.1 Natural Movement</title>
 <style>
 :root{--ink:#24251f;--muted:#77776d;--paper:#f5f0e7;--card:#fffdf8;--line:#ded7ca;--accent:#c96f4b;--dark:#24251f;--soft:#ece4d8}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink)}
@@ -17,7 +17,7 @@ main{padding:32px 38px 60px;max-width:1320px;width:100%;margin:auto}.screen{disp
 .measure{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.measure div{background:#f1ebe1;border-radius:15px;padding:14px}.measure strong{display:block;font:22px Georgia,serif}
 .poseTabs,.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px}.poseChip,.toolbar button{border:1px solid var(--line);background:white;border-radius:99px;padding:9px 12px;font-size:12px;font-weight:850}.poseChip.on,.toolbar button.on{background:var(--dark);color:white;border-color:var(--dark)}
 .poseGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.posePreset{border:1px solid var(--line);background:white;border-radius:16px;padding:10px;text-align:center}.posePreset.on{border:2px solid var(--accent);background:#fff7f1}.posePreset svg{width:100%;height:115px}.posePreset b{display:block;font-size:12px}
-.figureGrid{display:grid;grid-template-columns:minmax(390px,1.15fr) minmax(280px,.85fr);gap:18px;margin-top:18px}.stage{min-height:540px;border-radius:20px;background:linear-gradient(145deg,#e9e1d5,#cec1af);position:relative;overflow:hidden}.stage svg{width:100%;height:540px;touch-action:none}.bone{stroke:#655d52;stroke-width:9;stroke-linecap:round}.stage.volume .bone{stroke-width:25}.torso{fill:#8a8175;opacity:.28}.stage.volume .torso{opacity:.92}.joint{fill:#fff8ed;stroke:#9d6248;stroke-width:3}.joint.major{fill:#f1d7c6;stroke-width:4}.guide{stroke:#a79d8f;stroke-width:1.5;stroke-dasharray:6 6}.hint{position:absolute;left:14px;bottom:12px;background:#fffbdc;padding:7px 10px;border-radius:10px;font-size:11px;font-weight:800}.sidecard{background:#f1ebe1;border-radius:16px;padding:14px;margin-top:12px}
+.figureGrid{display:grid;grid-template-columns:minmax(390px,1.15fr) minmax(280px,.85fr);gap:18px;margin-top:18px}.stage{min-height:540px;border-radius:20px;background:linear-gradient(145deg,#e9e1d5,#cec1af);position:relative;overflow:hidden}.stage svg{width:100%;height:540px;touch-action:none}.bone{stroke:#655d52;stroke-width:9;stroke-linecap:round}.stage.volume .bone{stroke-width:25}.torso{fill:#8a8175;opacity:.28}.stage.volume .torso{opacity:.92}.joint{fill:#fff8ed;stroke:#9d6248;stroke-width:3}.joint.major{fill:#f1d7c6;stroke-width:4}.joint.move{fill:#fff3c9;stroke:#b06d45;stroke-width:4}.motionArc{fill:none;stroke:#b7aa98;stroke-width:2;stroke-dasharray:5 5;opacity:.75}.fixedJoint{fill:#8a8175;stroke:#fff8ed;stroke-width:2}.guide{stroke:#a79d8f;stroke-width:1.5;stroke-dasharray:6 6}.hint{position:absolute;left:14px;bottom:12px;background:#fffbdc;padding:7px 10px;border-radius:10px;font-size:11px;font-weight:800}.sidecard{background:#f1ebe1;border-radius:16px;padding:14px;margin-top:12px}
 .blueprint{border:1px solid #c88769;background:#fff8f2;border-radius:18px;padding:18px;margin-top:18px}.bluegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.bluegrid div{background:white;border-radius:12px;padding:10px}.bluegrid b{display:block;font:18px Georgia,serif}
 .canvasWrap{background:white;border:1px solid var(--line);border-radius:18px;overflow:hidden}.canvasHead{display:flex;justify-content:space-between;padding:11px 13px;background:#faf6ef;border-bottom:1px solid var(--line)}canvas{display:block;width:100%;height:390px;touch-action:none;background:#fffdf8}.draftGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.toast{position:fixed;right:24px;bottom:24px;background:var(--dark);color:white;padding:13px 17px;border-radius:13px;opacity:0;transform:translateY(12px);transition:.25s}.toast.show{opacity:1;transform:none}
 @media(max-width:1000px){.figureGrid,.draftGrid{grid-template-columns:1fr}.poseGrid{grid-template-columns:repeat(3,1fr)}}@media(max-width:900px){.app{grid-template-columns:86px 1fr}.brand{font-size:0}.brand:before{content:'AC';font:700 24px Georgia}.brand small,.sidefoot{display:none}.nav button{font-size:0;text-align:center}.nav button::first-letter{font-size:20px}main{padding:24px 20px}.hero,.quick{grid-column:1/-1}.module{grid-column:span 6}.two{grid-template-columns:1fr}}@media(max-width:700px){.poseGrid{grid-template-columns:repeat(2,1fr)}.measure,.bluegrid{grid-template-columns:1fr 1fr}}
@@ -33,9 +33,9 @@ main{padding:32px 38px 60px;max-width:1320px;width:100%;margin:auto}.screen{disp
 <button id="nav-draft" onclick="show('draft');initCanvas()">✏️ &nbsp;Entwurf</button>
 <button id="nav-studio" onclick="show('studio')">✋ &nbsp;Ateliermodus</button>
 <button id="nav-book" onclick="show('book')">📔 &nbsp;Atelierbuch</button>
-</div><div class="sidefoot">ART COACH V1.3<br>Figurenatelier · lokal gespeichert</div></aside>
+</div><div class="sidefoot">ART COACH V1.3.1<br>Natural Movement · lokal gespeichert</div></aside>
 <main>
-<section id="home" class="screen active"><div class="top"><div><div class="eyebrow">Mein digitales Atelier</div><h1>Guten Tag 👋</h1><div class="sub">Sehen, entscheiden, gestalten und den eigenen künstlerischen Prozess verstehen.</div></div><div class="pill">ART COACH · V1.3</div></div>
+<section id="home" class="screen active"><div class="top"><div><div class="eyebrow">Mein digitales Atelier</div><h1>Guten Tag 👋</h1><div class="sub">Sehen, entscheiden, gestalten und den eigenen künstlerischen Prozess verstehen.</div></div><div class="pill">ART COACH · V1.3.1</div></div>
 <div class="grid"><div class="card hero"><div class="eyebrow">Aktuelles Werk</div><h2 id="homeTitle">Menschliche Figur aus Ton</h2><p id="homeIntent" class="sub"></p><div class="actions"><button class="btn primary" onclick="show('project')">Weiterarbeiten →</button><button class="btn outline" onclick="newProject()">Neues Werk</button></div></div>
 <div class="quick"><button onclick="show('pose');initPose()"><b>🧍 Figurenatelier</b><br><span class="small">Pose, Alter, Vorder- und Seitenansicht</span></button><button onclick="show('plan')"><b>📐 Bauplan</b><br><span class="small">Proportionen und Grundgerüst</span></button><button onclick="show('draft');initCanvas()"><b>✏️ Entwurf</b><br><span class="small">Apple Pencil / Finger</span></button></div>
 <div class="card module"><b>🏺 Plastik</b><p class="small">Mensch · Proportion · Volumen · Haltung · Ausdruck</p></div><div class="card module"><b>✏️ Grafik</b><p class="small">später</p></div><div class="card module"><b>🎨 Malerei</b><p class="small">später</p></div><div class="card module"><b>🏛️ Architektur</b><p class="small">später</p></div></div></section>
@@ -51,10 +51,10 @@ main{padding:32px 38px 60px;max-width:1320px;width:100%;margin:auto}.screen{disp
 
 <section id="pose" class="screen"><div class="top"><div><div class="eyebrow">Posenwerkstatt · V1.3</div><h1>Figurenatelier</h1><div class="sub">Haltung, Proportion und räumliche Wirkung als Grundgerüst für die Tonfigur.</div></div></div>
 <div class="card"><div class="poseTabs" id="poseTabs"></div><div class="poseGrid" id="poseGrid"></div></div>
-<div class="figureGrid"><div><div class="toolbar"><button data-view="front" onclick="setView('front')">↔ Vorderansicht</button><button data-view="side" onclick="setView('side')">◐ Seitenansicht</button></div><div id="stage" class="stage"><svg id="figureSvg" viewBox="0 0 360 500"></svg><div class="hint">● Punkte mit Finger oder Apple Pencil bewegen</div></div></div>
+<div class="figureGrid"><div><div class="toolbar"><button data-view="front" onclick="setView('front')">↔ Vorderansicht</button><button data-view="side" onclick="setView('side')">◐ Seitenansicht</button></div><div id="stage" class="stage"><svg id="figureSvg" viewBox="0 0 360 500"></svg><div class="hint">● Gelenke bewegen · Gliedmaßen behalten ihre natürliche Länge</div></div></div>
 <div class="card"><div class="eyebrow">Proportion</div><h2>Alter & Körperbau</h2><div class="toolbar"><button data-age="child" onclick="setAge('child')">🧒 Kind</button><button data-age="teen" onclick="setAge('teen')">🧑 Jugendliche/r</button><button data-age="adult" onclick="setAge('adult')">🧍 Erwachsene/r</button></div><p id="ageNote" class="small"></p>
 <div class="eyebrow" style="margin-top:20px">Darstellung</div><div class="toolbar"><button data-mode="skeleton" onclick="setMode('skeleton')">🦴 Grundgerüst</button><button data-mode="volume" onclick="setMode('volume')">🧍 Volumen</button></div>
-<div class="sidecard"><b>Beweglicher Körper</b><p class="small">Vorderansicht: Kopf, Schulter, Becken, Rumpf, Hände und Füße. Seitenansicht: Vor-/Zurückbewegung und Tiefe.</p></div>
+<div class="sidecard"><b>Beweglicher Körper</b><p class="small">Arme und Beine sind jetzt feste Gelenkketten. Bewege Ellenbogen und Knie – Hände und Füße folgen automatisch. Kopf und Körper bleiben verbunden.</p></div>
 <div class="actions"><button class="btn secondary" onclick="resetPose()">↺ Zurücksetzen</button><button class="btn primary" onclick="saveBlueprint()">📐 Diese Figur als Bauplan übernehmen</button></div><p class="small"><b>Kunst-Coach:</b> Anatomische Proportionen sind Ausgangspunkte. Bewusste Abweichungen können Ausdruck erzeugen.</p></div></div></section>
 
 <section id="draft" class="screen"><div class="top"><div><div class="eyebrow">Entwurfsatelier</div><h1>Eigene Skizze</h1><div class="sub">Direkt mit Apple Pencil oder Finger zeichnen. V1.3 korrigiert die iPad-Koordinaten.</div></div></div>
@@ -67,7 +67,7 @@ main{padding:32px 38px 60px;max-width:1320px;width:100%;margin:auto}.screen{disp
 </main></div><div id="toast" class="toast"></div>
 <script>
 const $=id=>document.getElementById(id);
-let state={title:'Menschliche Figur aus Ton',intent:'Einsamkeit und Verletzlichkeit',material:'Ton – Aufbauplastik',form:'geschlossen',reason:'',height:30,heads:7.5,figureAge:'adult',figureView:'front',mannequinMode:'skeleton',posePreset:'stand-neutral',customPose:null,poseDepth:{},poseBlueprint:null,draftImage:'',draftIntent:'',draftChange:'',observation:'',nextCheck:'Gesamtform & Volumen',reflectGood:'',reflectNext:''};
+let state={title:'Menschliche Figur aus Ton',intent:'Einsamkeit und Verletzlichkeit',material:'Ton – Aufbauplastik',form:'geschlossen',reason:'',height:30,heads:7.5,figureAge:'adult',figureView:'front',mannequinMode:'skeleton',posePreset:'stand-neutral',customPose:null,poseDepth:{},poseBlueprint:null,draftImage:'',draftIntent:'',draftChange:'',observation:'',nextCheck:'Gesamtform & Volumen',reflectGood:'',reflectNext:'',natural:null};
 try{state={...state,...JSON.parse(localStorage.getItem('artCoachV1')||'{}')}}catch(e){}
 function toast(t){let x=$('toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1800)}
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.id==='nav-'+id));if(id==='home')renderHome();if(id==='book')renderBook();window.scrollTo(0,0)}
@@ -96,17 +96,106 @@ function initPose(){let f=currentBase();category=Object.keys(catalog).find(k=>ca
 function renderTabs(){$('poseTabs').innerHTML=Object.keys(catalog).map(k=>`<button class="poseChip ${k===category?'on':''}" onclick="category='${k}';renderTabs();renderGrid()">${k}</button>`).join('')}
 function mini(p){let q=cp(p),a=ages[state.figureAge],c=180;['ls','rs'].forEach(k=>q[k][0]=c+(q[k][0]-c)*a.shoulder);return `<svg viewBox="0 0 360 500">${markup(q,false,true)}</svg>`}
 function renderGrid(){$('poseGrid').innerHTML=catalog[category].map(x=>`<button class="posePreset ${state.posePreset===x.id?'on':''}" onclick="selectPose('${x.id}')">${mini(x.p)}<b>${x.name}</b></button>`).join('')}
-function selectPose(id){let x=allPoses().find(v=>v.id===id);state.posePreset=id;state.customPose=null;state.poseDepth={};poseModel=cp(x.p);save();renderGrid();renderFigure()}
+function selectPose(id){let x=allPoses().find(v=>v.id===id);state.posePreset=id;state.customPose=null;state.poseDepth={};state.natural=null;poseModel=cp(x.p);save();renderGrid();renderFigure()}
 function ik(a,t,l1,l2,side=1){let dx=t[0]-a[0],dy=t[1]-a[1],d=Math.max(1,Math.hypot(dx,dy)),dc=clamp(d,Math.abs(l1-l2)+1,l1+l2-1),ux=dx/d,uy=dy/d,x=(l1*l1-l2*l2+dc*dc)/(2*dc),h=Math.sqrt(Math.max(0,l1*l1-x*x));return[a[0]+ux*x-side*uy*h,a[1]+uy*x+side*ux*h]}
 function adjusted(p){p=cp(p);let a=ages[state.figureAge],c=180;['ls','rs'].forEach(k=>p[k][0]=c+(p[k][0]-c)*a.shoulder);['lh','rh'].forEach(k=>p[k][0]=c+(p[k][0]-c)*a.pelvis);[['lw','ls'],['rw','rs'],['la','lh'],['ra','rh']].forEach(([k,r])=>{p[k][0]=p[r][0]+(p[k][0]-p[r][0])*a.limb;p[k][1]=p[r][1]+(p[k][1]-p[r][1])*a.limb});return p}
 function side(k,p){let d=state.poseDepth||{},def={head:0,ls:-8,rs:8,lh:-5,rh:5,lw:-18,rw:18,la:-10,ra:10};return[180+(d[k]??def[k]??0),p[k][1]]}
-function markup(q,handles=true,miniMode=false){let a=ages[state.figureAge],arm1=76*a.limb,arm2=72*a.limb,leg1=100*a.limb,leg2=105*a.limb,le=ik(q.ls,q.lw,arm1,arm2,q.elbowL||1),re=ik(q.rs,q.rw,arm1,arm2,q.elbowR||-1),lk=ik(q.lh,q.la,leg1,leg2,q.kneeL||1),rk=ik(q.rh,q.ra,leg1,leg2,q.kneeR||-1),sh=mid(q.ls,q.rs),hp=mid(q.lh,q.rh),tor=mid(sh,hp);let L=(x,y)=>`<line class="bone" x1="${x[0]}" y1="${x[1]}" x2="${y[0]}" y2="${y[1]}"/>`,J=(k,x,m=false)=>handles?`<circle class="joint ${m?'major':''}" data-key="${k}" cx="${x[0]}" cy="${x[1]}" r="${m?12:10}"/>`:'';return `<line class="guide" x1="180" y1="25" x2="180" y2="475"/><polygon class="torso" points="${q.ls} ${q.rs} ${q.rh} ${q.lh}"/>${L(q.ls,le)}${L(le,q.lw)}${L(q.rs,re)}${L(re,q.rw)}${L(q.lh,lk)}${L(lk,q.la)}${L(q.rh,rk)}${L(rk,q.ra)}${L(q.ls,q.rs)}${L(q.lh,q.rh)}${L(sh,q.head)}<ellipse class="torso" cx="${q.head[0]}" cy="${q.head[1]}" rx="${22*a.head}" ry="${28*a.head}"/>${J('head',q.head,true)}${J('ls',q.ls,true)}${J('rs',q.rs,true)}${J('lh',q.lh,true)}${J('rh',q.rh,true)}${J('lw',q.lw)}${J('rw',q.rw)}${J('la',q.la)}${J('ra',q.ra)}${!miniMode&&state.figureView==='front'?J('torso',tor,true):''}`}
-function renderFigure(){if(!poseModel)return;let p=adjusted(poseModel),front=state.figureView==='front',q=front?p:Object.fromEntries(['head','ls','rs','lh','rh','lw','rw','la','ra'].map(k=>[k,side(k,p)]));q.elbowL=p.elbowL;q.elbowR=p.elbowR;q.kneeL=p.kneeL;q.kneeR=p.kneeR;$('figureSvg').innerHTML=markup(q,true,false);bindDrag();$('ageNote').textContent=ages[state.figureAge].note;$('stage').classList.toggle('volume',state.mannequinMode==='volume')}
+function unitFrom(a,b){let dx=b[0]-a[0],dy=b[1]-a[1],d=Math.hypot(dx,dy)||1;return[dx/d,dy/d]}
+function pointAt(a,u,l){return[a[0]+u[0]*l,a[1]+u[1]*l]}
+function circleConstrain(root,p,len){let u=unitFrom(root,p);return pointAt(root,u,len)}
+function naturalInit(q){
+  let a=ages[state.figureAge], A1=76*a.limb,A2=72*a.limb,L1=100*a.limb,L2=105*a.limb;
+  let le=ik(q.ls,q.lw,A1,A2,q.elbowL||1),re=ik(q.rs,q.rw,A1,A2,q.elbowR||-1),lk=ik(q.lh,q.la,L1,L2,q.kneeL||1),rk=ik(q.rh,q.ra,L1,L2,q.kneeR||-1);
+  return {le,re,lk,rk};
+}
+function sideChain(root,key1,key2,l1,l2,defaultAngle){
+  state.natural=state.natural||{};state.natural.side=state.natural.side||{};
+  let d=state.natural.side, ang=d[key1]??defaultAngle, bend=d[key2]??1.25;
+  let e=[root[0]+Math.cos(ang)*l1,root[1]+Math.sin(ang)*l1];
+  let w=[e[0]+Math.cos(ang+bend)*l2,e[1]+Math.sin(ang+bend)*l2];
+  return {e,w};
+}
+function markupNatural(q,handles=true,miniMode=false){
+  let a=ages[state.figureAge],A1=76*a.limb,A2=72*a.limb,L1=100*a.limb,L2=105*a.limb,front=state.figureView==='front'||miniMode;
+  let sh=mid(q.ls,q.rs),hp=mid(q.lh,q.rh),tor=mid(sh,hp),le,re,lk,rk,lw,rw,la,ra;
+  if(front){
+    let n=naturalInit(q);le=n.le;re=n.re;lk=n.lk;rk=n.rk;lw=q.lw;rw=q.rw;la=q.la;ra=q.ra;
+  }else{
+    // Vorderer und hinterer Arm / Bein haben bewusst getrennte Winkel.
+    let L=sideChain(q.ls,'armL','bendL',A1,A2,1.65),R=sideChain(q.rs,'armR','bendR',A1,A2,1.35);
+    let KL=sideChain(q.lh,'legL','kneeBendL',L1,L2,1.55),KR=sideChain(q.rh,'legR','kneeBendR',L1,L2,1.48);
+    le=L.e;lw=L.w;re=R.e;rw=R.w;lk=KL.e;la=KL.w;rk=KR.e;ra=KR.w;
+  }
+  let L=(x,y)=>`<line class="bone" x1="${x[0]}" y1="${x[1]}" x2="${y[0]}" y2="${y[1]}"/>`,
+      J=(k,x,m=false,move=false)=>handles?`<circle class="joint ${m?'major':''} ${move?'move':''}" data-key="${k}" cx="${x[0]}" cy="${x[1]}" r="${move?12:(m?11:8)}"/>`:'',
+      F=x=>handles?`<circle class="fixedJoint" cx="${x[0]}" cy="${x[1]}" r="6"/>`:'';
+  let arcs=handles?`<circle class="motionArc" cx="${q.ls[0]}" cy="${q.ls[1]}" r="${A1}"/><circle class="motionArc" cx="${q.rs[0]}" cy="${q.rs[1]}" r="${A1}"/><circle class="motionArc" cx="${q.lh[0]}" cy="${q.lh[1]}" r="${L1}"/><circle class="motionArc" cx="${q.rh[0]}" cy="${q.rh[1]}" r="${L1}"/>`:'';
+  return `<line class="guide" x1="180" y1="25" x2="180" y2="475"/>${arcs}<polygon class="torso" points="${q.ls} ${q.rs} ${q.rh} ${q.lh}"/>
+  ${L(q.ls,le)}${L(le,lw)}${L(q.rs,re)}${L(re,rw)}${L(q.lh,lk)}${L(lk,la)}${L(q.rh,rk)}${L(rk,ra)}
+  ${L(q.ls,q.rs)}${L(q.lh,q.rh)}${L(sh,q.head)}
+  <ellipse class="torso" cx="${q.head[0]}" cy="${q.head[1]}" rx="${22*a.head*(front?1:.72)}" ry="${28*a.head}"/>
+  ${F(q.ls)}${F(q.rs)}${F(q.lh)}${F(q.rh)}
+  ${J('head',q.head,true,true)}${J('le',le,false,true)}${J('re',re,false,true)}${J('lk',lk,false,true)}${J('rk',rk,false,true)}
+  ${!miniMode&&front?J('torso',tor,true,true):''}`;
+}
+function markup(q,handles=true,miniMode=false){return markupNatural(q,handles,miniMode)}
+function renderFigure(){
+  if(!poseModel)return;let p=adjusted(poseModel),front=state.figureView==='front',
+  q=front?p:Object.fromEntries(['head','ls','rs','lh','rh','lw','rw','la','ra'].map(k=>[k,side(k,p)]));
+  q.elbowL=p.elbowL;q.elbowR=p.elbowR;q.kneeL=p.kneeL;q.kneeR=p.kneeR;
+  $('figureSvg').innerHTML=markupNatural(q,true,false);bindDrag();
+  $('ageNote').textContent=ages[state.figureAge].note;$('stage').classList.toggle('volume',state.mannequinMode==='volume')
+}
 function svgPt(e){let s=$('figureSvg'),p=s.createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform(s.getScreenCTM().inverse())}
-function bindDrag(){let s=$('figureSvg');s.querySelectorAll('[data-key]').forEach(n=>n.onpointerdown=e=>{drag=n.dataset.key;lastPt=svgPt(e);s.setPointerCapture?.(e.pointerId);e.preventDefault()});s.onpointermove=e=>{if(!drag)return;let p=svgPt(e);if(state.figureView==='front'){if(drag==='torso'){let dx=p.x-lastPt.x,dy=p.y-lastPt.y;['head','ls','rs','lh','rh'].forEach(k=>{poseModel[k][0]+=dx;poseModel[k][1]+=dy});lastPt=p}else poseModel[drag]=[clamp(p.x,30,330),clamp(p.y,30,470)]}else{state.poseDepth[drag]=clamp(p.x-180,-115,115);if(['head','lw','rw','la','ra'].includes(drag))poseModel[drag][1]=clamp(p.y,30,470)}state.customPose=cp(poseModel);renderFigure()};s.onpointerup=s.onpointercancel=()=>{if(drag){drag=null;state.customPose=cp(poseModel);save()}}}
+function angle(root,p){return Math.atan2(p[1]-root[1],p[0]-root[0])}
+function normAngle(a){while(a>Math.PI)a-=2*Math.PI;while(a<-Math.PI)a+=2*Math.PI;return a}
+function bindDrag(){
+ let s=$('figureSvg');
+ s.querySelectorAll('[data-key]').forEach(n=>n.onpointerdown=e=>{drag=n.dataset.key;lastPt=svgPt(e);s.setPointerCapture?.(e.pointerId);e.preventDefault()});
+ s.onpointermove=e=>{
+  if(!drag)return;let pt=svgPt(e),p=adjusted(poseModel),front=state.figureView==='front',a=ages[state.figureAge],A1=76*a.limb,A2=72*a.limb,L1=100*a.limb,L2=105*a.limb;
+  if(front){
+   if(drag==='torso'){
+    let dx=pt.x-lastPt.x,dy=pt.y-lastPt.y;
+    // Gesamte Figur verschieben: nichts wird auseinandergezogen.
+    ['head','ls','rs','lh','rh','lw','rw','la','ra'].forEach(k=>{poseModel[k][0]+=dx;poseModel[k][1]+=dy});lastPt=pt;
+   }else if(drag==='head'){
+    let neck=mid(p.ls,p.rs),target=circleConstrain(neck,pt,62*a.head);
+    poseModel.head=[clamp(target[0],80,280),clamp(target[1],35,205)];
+   }else{
+    let isL=drag==='le'||drag==='lk', isArm=drag==='le'||drag==='re';
+    let root=isArm?(isL?p.ls:p.rs):(isL?p.lh:p.rh), l1=isArm?A1:L1,l2=isArm?A2:L2;
+    let oldEnd=isArm?(isL?p.lw:p.rw):(isL?p.la:p.ra), oldJoint=isArm?ik(root,oldEnd,l1,l2,isL?1:-1):ik(root,oldEnd,l1,l2,isL?1:-1);
+    let j=circleConstrain(root,pt,l1);
+    let u=unitFrom(oldJoint,oldEnd),end=pointAt(j,u,l2);
+    // Knie/Ellenbogen bleiben in einem plausiblen Bildbereich.
+    end=[clamp(end[0],25,335),clamp(end[1],35,475)];
+    let key=isArm?(isL?'lw':'rw'):(isL?'la':'ra');
+    // Endpoint wird aus Gelenk + fixer Segmentlänge abgeleitet.
+    let u2=unitFrom(j,end);end=pointAt(j,u2,l2);
+    poseModel[key]=end;
+   }
+  }else{
+   state.natural=state.natural||{};state.natural.side=state.natural.side||{};let d=state.natural.side;
+   let roots={le:p.ls,re:p.rs,lk:p.lh,rk:p.rh},r=roots[drag];
+   if(drag==='head'){
+     let neck=mid([180,p.ls[1]],[180,p.rs[1]]),t=circleConstrain(neck,pt,62*a.head);
+     state.poseDepth.head=clamp(t[0]-180,-55,55);poseModel.head[1]=clamp(t[1],35,205);
+   }else if(r){
+     let an=angle([180+(state.poseDepth[drag==='le'?'ls':drag==='re'?'rs':drag==='lk'?'lh':'rh']||0),r[1]],pt);
+     if(drag==='le')d.armL=clamp(an,-2.8,2.8);
+     if(drag==='re')d.armR=clamp(an,-2.8,2.8);
+     if(drag==='lk')d.legL=clamp(an,-2.8,2.8);
+     if(drag==='rk')d.legR=clamp(an,-2.8,2.8);
+   }
+  }
+  state.customPose=cp(poseModel);localStorage.setItem('artCoachV1',JSON.stringify(state));renderFigure();
+ };
+ s.onpointerup=s.onpointercancel=()=>{if(drag){drag=null;state.customPose=cp(poseModel);save()}};
+}
 function syncButtons(){document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('on',b.dataset.view===state.figureView));document.querySelectorAll('[data-age]').forEach(b=>b.classList.toggle('on',b.dataset.age===state.figureAge));document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('on',b.dataset.mode===state.mannequinMode))}
 function setView(v){state.figureView=v;save();syncButtons();renderFigure()}function setAge(v){state.figureAge=v;save();syncButtons();renderGrid();renderFigure()}function setMode(v){state.mannequinMode=v;save();syncButtons();renderFigure()}
-function resetPose(){poseModel=cp(currentBase().p);state.customPose=null;state.poseDepth={};save();renderFigure();toast('Ausgangspose wiederhergestellt')}
+function resetPose(){poseModel=cp(currentBase().p);state.customPose=null;state.poseDepth={};state.natural=null;save();renderFigure();toast('Ausgangspose wiederhergestellt')}
 function saveBlueprint(){state.customPose=cp(poseModel);state.poseBlueprint={pose:cp(poseModel),depth:cp(state.poseDepth),age:state.figureAge,savedAt:new Date().toISOString()};save();renderBlueprint();toast('Figur als Bauplan übernommen');show('plan')}
 function renderBlueprint(){let b=$('blueprint');if(!b)return;if(!state.poseBlueprint){b.innerHTML='';return}let a=ages[state.poseBlueprint.age],h=Number(state.height||30),head=h/a.heads;b.innerHTML=`<div class="blueprint"><div class="eyebrow">Übernommenes Grundgerüst</div><h2>Deine Figur ist im Bauplan gespeichert</h2><p class="small">${a.label} · ${a.heads.toString().replace('.',',')} Kopfhöhen · Vorder- und Seiteninformation gespeichert.</p><div class="bluegrid"><div><span class="small">Figur</span><b>${h} cm</b></div><div><span class="small">Kopf</span><b>${head.toFixed(1).replace('.',',')} cm</b></div><div><span class="small">Alterstyp</span><b>${a.label}</b></div><div><span class="small">Ansichten</span><b>Front + Seite</b></div></div></div>`}
 let ctx=null,drawing=false,last=null,dpr=1;
@@ -115,7 +204,7 @@ function canvasPos(e,c){let r=c.getBoundingClientRect();return{x:e.clientX-r.lef
 function saveCanvas(){let c=$('draftCanvas');if(!c)return;state.draftImage=c.toDataURL('image/jpeg',.78);save()}
 function clearCanvas(){let c=$('draftCanvas');if(!c||!ctx)return;ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,c.width,c.height);ctx.restore();state.draftImage='';save()}
 window.addEventListener('resize',()=>{if($('draft').classList.contains('active'))setTimeout(initCanvas,120)});
-if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=1301').catch(()=>{}));
+if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=1311').catch(()=>{}));
 load();
 </script>
 </body></html>
