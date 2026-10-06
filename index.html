@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#24251f">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>ART COACH V1.3.1 Natural Movement</title>
+<title>ART COACH V1.3.2 Natural Joints</title>
 <style>
 :root{--ink:#24251f;--muted:#77776d;--paper:#f5f0e7;--card:#fffdf8;--line:#ded7ca;--accent:#c96f4b;--dark:#24251f;--soft:#ece4d8}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink)}
@@ -33,9 +33,9 @@ main{padding:32px 38px 60px;max-width:1320px;width:100%;margin:auto}.screen{disp
 <button id="nav-draft" onclick="show('draft');initCanvas()">✏️ &nbsp;Entwurf</button>
 <button id="nav-studio" onclick="show('studio')">✋ &nbsp;Ateliermodus</button>
 <button id="nav-book" onclick="show('book')">📔 &nbsp;Atelierbuch</button>
-</div><div class="sidefoot">ART COACH V1.3.1<br>Natural Movement · lokal gespeichert</div></aside>
+</div><div class="sidefoot">ART COACH V1.3.2<br>Natural Joints · lokal gespeichert</div></aside>
 <main>
-<section id="home" class="screen active"><div class="top"><div><div class="eyebrow">Mein digitales Atelier</div><h1>Guten Tag 👋</h1><div class="sub">Sehen, entscheiden, gestalten und den eigenen künstlerischen Prozess verstehen.</div></div><div class="pill">ART COACH · V1.3.1</div></div>
+<section id="home" class="screen active"><div class="top"><div><div class="eyebrow">Mein digitales Atelier</div><h1>Guten Tag 👋</h1><div class="sub">Sehen, entscheiden, gestalten und den eigenen künstlerischen Prozess verstehen.</div></div><div class="pill">ART COACH · V1.3.2</div></div>
 <div class="grid"><div class="card hero"><div class="eyebrow">Aktuelles Werk</div><h2 id="homeTitle">Menschliche Figur aus Ton</h2><p id="homeIntent" class="sub"></p><div class="actions"><button class="btn primary" onclick="show('project')">Weiterarbeiten →</button><button class="btn outline" onclick="newProject()">Neues Werk</button></div></div>
 <div class="quick"><button onclick="show('pose');initPose()"><b>🧍 Figurenatelier</b><br><span class="small">Pose, Alter, Vorder- und Seitenansicht</span></button><button onclick="show('plan')"><b>📐 Bauplan</b><br><span class="small">Proportionen und Grundgerüst</span></button><button onclick="show('draft');initCanvas()"><b>✏️ Entwurf</b><br><span class="small">Apple Pencil / Finger</span></button></div>
 <div class="card module"><b>🏺 Plastik</b><p class="small">Mensch · Proportion · Volumen · Haltung · Ausdruck</p></div><div class="card module"><b>✏️ Grafik</b><p class="small">später</p></div><div class="card module"><b>🎨 Malerei</b><p class="small">später</p></div><div class="card module"><b>🏛️ Architektur</b><p class="small">später</p></div></div></section>
@@ -110,7 +110,7 @@ function naturalInit(q){
 }
 function sideChain(root,key1,key2,l1,l2,defaultAngle){
   state.natural=state.natural||{};state.natural.side=state.natural.side||{};
-  let d=state.natural.side, ang=d[key1]??defaultAngle, bend=d[key2]??1.25;
+  let d=state.natural.side, ang=d[key1]??defaultAngle, bend=d[key2]??(key1==='armR'?-1.15:key1==='armL'?1.15:key1==='legR'?-0.75:0.75);
   let e=[root[0]+Math.cos(ang)*l1,root[1]+Math.sin(ang)*l1];
   let w=[e[0]+Math.cos(ang+bend)*l2,e[1]+Math.sin(ang+bend)*l2];
   return {e,w};
@@ -149,49 +149,75 @@ function renderFigure(){
 function svgPt(e){let s=$('figureSvg'),p=s.createSVGPoint();p.x=e.clientX;p.y=e.clientY;return p.matrixTransform(s.getScreenCTM().inverse())}
 function angle(root,p){return Math.atan2(p[1]-root[1],p[0]-root[0])}
 function normAngle(a){while(a>Math.PI)a-=2*Math.PI;while(a<-Math.PI)a+=2*Math.PI;return a}
+let dragStart=null;
 function bindDrag(){
  let s=$('figureSvg');
- s.querySelectorAll('[data-key]').forEach(n=>n.onpointerdown=e=>{drag=n.dataset.key;lastPt=svgPt(e);s.setPointerCapture?.(e.pointerId);e.preventDefault()});
+ s.querySelectorAll('[data-key]').forEach(n=>n.onpointerdown=e=>{
+   drag=n.dataset.key; lastPt=svgPt(e);
+   let p=adjusted(poseModel),a=ages[state.figureAge],A1=76*a.limb,A2=72*a.limb,L1=100*a.limb,L2=105*a.limb;
+   let q=state.figureView==='front'?p:Object.fromEntries(['head','ls','rs','lh','rh','lw','rw','la','ra'].map(k=>[k,side(k,p)]));
+   q.elbowL=p.elbowL;q.elbowR=p.elbowR;q.kneeL=p.kneeL;q.kneeR=p.kneeR;
+   let n=naturalInit(q);
+   dragStart={p:cp(p),q:cp(q),A1,A2,L1,L2,le:n.le,re:n.re,lk:n.lk,rk:n.rk};
+   s.setPointerCapture?.(e.pointerId);e.preventDefault();
+ });
  s.onpointermove=e=>{
-  if(!drag)return;let pt=svgPt(e),p=adjusted(poseModel),front=state.figureView==='front',a=ages[state.figureAge],A1=76*a.limb,A2=72*a.limb,L1=100*a.limb,L2=105*a.limb;
-  if(front){
-   if(drag==='torso'){
-    let dx=pt.x-lastPt.x,dy=pt.y-lastPt.y;
-    // Gesamte Figur verschieben: nichts wird auseinandergezogen.
-    ['head','ls','rs','lh','rh','lw','rw','la','ra'].forEach(k=>{poseModel[k][0]+=dx;poseModel[k][1]+=dy});lastPt=pt;
-   }else if(drag==='head'){
-    let neck=mid(p.ls,p.rs),target=circleConstrain(neck,pt,62*a.head);
-    poseModel.head=[clamp(target[0],80,280),clamp(target[1],35,205)];
+   if(!drag||!dragStart)return;
+   let pt=svgPt(e),D=dragStart;
+   if(state.figureView==='front'){
+     if(drag==='torso'){
+       let dx=pt.x-lastPt.x,dy=pt.y-lastPt.y;
+       ['head','ls','rs','lh','rh','lw','rw','la','ra'].forEach(k=>{poseModel[k][0]+=dx;poseModel[k][1]+=dy});
+       lastPt=pt;
+     }else if(drag==='head'){
+       let neck=mid(D.p.ls,D.p.rs), target=circleConstrain(neck,pt,62*ages[state.figureAge].head);
+       poseModel.head=[clamp(target[0],65,295),clamp(target[1],30,210)];
+     }else{
+       let cfg={
+         le:{root:D.p.ls,joint:D.le,end:D.p.lw,l1:D.A1,l2:D.A2,key:'lw'},
+         re:{root:D.p.rs,joint:D.re,end:D.p.rw,l1:D.A1,l2:D.A2,key:'rw'},
+         lk:{root:D.p.lh,joint:D.lk,end:D.p.la,l1:D.L1,l2:D.L2,key:'la'},
+         rk:{root:D.p.rh,joint:D.rk,end:D.p.ra,l1:D.L1,l2:D.L2,key:'ra'}
+       }[drag];
+       if(cfg){
+         // The dragged elbow/knee stays exactly on its anatomical circle.
+         let j=circleConstrain(cfg.root,pt,cfg.l1);
+         // Preserve the original bend angle of the distal segment while rotating the whole chain.
+         let base0=angle(cfg.root,cfg.joint), base1=angle(cfg.root,j), delta=normAngle(base1-base0);
+         let distal0=angle(cfg.joint,cfg.end), distal=distal0+delta;
+         let end=[j[0]+Math.cos(distal)*cfg.l2,j[1]+Math.sin(distal)*cfg.l2];
+         // Store only the endpoint required by the existing pose model; IK reconstructs the same fixed-length chain.
+         poseModel[cfg.key]=end;
+       }
+     }
    }else{
-    let isL=drag==='le'||drag==='lk', isArm=drag==='le'||drag==='re';
-    let root=isArm?(isL?p.ls:p.rs):(isL?p.lh:p.rh), l1=isArm?A1:L1,l2=isArm?A2:L2;
-    let oldEnd=isArm?(isL?p.lw:p.rw):(isL?p.la:p.ra), oldJoint=isArm?ik(root,oldEnd,l1,l2,isL?1:-1):ik(root,oldEnd,l1,l2,isL?1:-1);
-    let j=circleConstrain(root,pt,l1);
-    let u=unitFrom(oldJoint,oldEnd),end=pointAt(j,u,l2);
-    // Knie/Ellenbogen bleiben in einem plausiblen Bildbereich.
-    end=[clamp(end[0],25,335),clamp(end[1],35,475)];
-    let key=isArm?(isL?'lw':'rw'):(isL?'la':'ra');
-    // Endpoint wird aus Gelenk + fixer Segmentlänge abgeleitet.
-    let u2=unitFrom(j,end);end=pointAt(j,u2,l2);
-    poseModel[key]=end;
+     state.natural=state.natural||{};state.natural.side=state.natural.side||{};
+     let d=state.natural.side;
+     if(drag==='head'){
+       let neck=[180,(D.q.ls[1]+D.q.rs[1])/2], t=circleConstrain(neck,pt,62*ages[state.figureAge].head);
+       state.poseDepth.head=clamp(t[0]-180,-55,55);poseModel.head[1]=clamp(t[1],35,205);
+     }else{
+       // Independent front/back limbs. The selected proximal segment follows the pointer;
+       // the distal segment keeps a natural, fixed bend.
+       let map={
+        le:{root:D.q.ls,a:'armL',b:'bendL',defB:1.15},
+        re:{root:D.q.rs,a:'armR',b:'bendR',defB:-1.15},
+        lk:{root:D.q.lh,a:'legL',b:'kneeBendL',defB:.75},
+        rk:{root:D.q.rh,a:'legR',b:'kneeBendR',defB:-.75}
+       },c=map[drag];
+       if(c){
+         let an=angle(c.root,pt);
+         d[c.a]=clamp(an,-2.9,2.9);
+         if(d[c.b]==null)d[c.b]=c.defB;
+       }
+     }
    }
-  }else{
-   state.natural=state.natural||{};state.natural.side=state.natural.side||{};let d=state.natural.side;
-   let roots={le:p.ls,re:p.rs,lk:p.lh,rk:p.rh},r=roots[drag];
-   if(drag==='head'){
-     let neck=mid([180,p.ls[1]],[180,p.rs[1]]),t=circleConstrain(neck,pt,62*a.head);
-     state.poseDepth.head=clamp(t[0]-180,-55,55);poseModel.head[1]=clamp(t[1],35,205);
-   }else if(r){
-     let an=angle([180+(state.poseDepth[drag==='le'?'ls':drag==='re'?'rs':drag==='lk'?'lh':'rh']||0),r[1]],pt);
-     if(drag==='le')d.armL=clamp(an,-2.8,2.8);
-     if(drag==='re')d.armR=clamp(an,-2.8,2.8);
-     if(drag==='lk')d.legL=clamp(an,-2.8,2.8);
-     if(drag==='rk')d.legR=clamp(an,-2.8,2.8);
-   }
-  }
-  state.customPose=cp(poseModel);localStorage.setItem('artCoachV1',JSON.stringify(state));renderFigure();
+   state.customPose=cp(poseModel);
+   localStorage.setItem('artCoachV1',JSON.stringify(state));
+   renderFigure();
  };
- s.onpointerup=s.onpointercancel=()=>{if(drag){drag=null;state.customPose=cp(poseModel);save()}};
+ const finish=()=>{if(drag){drag=null;dragStart=null;state.customPose=cp(poseModel);save()}};
+ s.onpointerup=finish;s.onpointercancel=finish;
 }
 function syncButtons(){document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('on',b.dataset.view===state.figureView));document.querySelectorAll('[data-age]').forEach(b=>b.classList.toggle('on',b.dataset.age===state.figureAge));document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('on',b.dataset.mode===state.mannequinMode))}
 function setView(v){state.figureView=v;save();syncButtons();renderFigure()}function setAge(v){state.figureAge=v;save();syncButtons();renderGrid();renderFigure()}function setMode(v){state.mannequinMode=v;save();syncButtons();renderFigure()}
@@ -204,7 +230,7 @@ function canvasPos(e,c){let r=c.getBoundingClientRect();return{x:e.clientX-r.lef
 function saveCanvas(){let c=$('draftCanvas');if(!c)return;state.draftImage=c.toDataURL('image/jpeg',.78);save()}
 function clearCanvas(){let c=$('draftCanvas');if(!c||!ctx)return;ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,c.width,c.height);ctx.restore();state.draftImage='';save()}
 window.addEventListener('resize',()=>{if($('draft').classList.contains('active'))setTimeout(initCanvas,120)});
-if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=1311').catch(()=>{}));
+if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=1321').catch(()=>{}));
 load();
 </script>
 </body></html>
