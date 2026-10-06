@@ -1,0 +1,21 @@
+ART COACH V1.3 – INSTALLATION
+
+1. Lade v13.css und v13.js in das Hauptverzeichnis deines GitHub-Repositories hoch.
+
+2. Öffne index.html zum Bearbeiten.
+
+3. Direkt VOR </head> diese Zeile einfügen:
+<link rel="stylesheet" href="./v13.css?v=130">
+
+4. Direkt VOR </body> diese Zeile einfügen:
+<script src="./v13.js?v=130"></script>
+
+5. In index.html die Service-Worker-Zeile am Ende ändern:
+./sw.js?v=122  →  ./sw.js?v=130
+
+6. sw.js durch die beiliegende neue sw.js ersetzen.
+
+7. Commit message: ART COACH V1.3 Figurenatelier
+
+WICHTIG:
+Die vorhandenen Projektdaten in localStorage bleiben erhalten.
