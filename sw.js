@@ -1,4 +1,4 @@
-const C='art-coach-v1331-20261006';
+const C='art-coach-v1341-20261006';
 const APP=['./','./index.html'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(APP)))});
 self.addEventListener('activate',e=>e.waitUntil((async()=>{for(const k of await caches.keys())if(k.startsWith('art-coach-')&&k!==C)await caches.delete(k);await self.clients.claim()})()));
